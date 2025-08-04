@@ -4,19 +4,14 @@ import { sendUserCredentials } from '../services/emailService.js';
 
 // Helper function to generate guest username
 const generateGuestUsername = (adminEmail, baseUsername) => {
-  const domain = adminEmail.split('@')[1];
-  const domainPrefix = domain.split('.')[0];
-  return `${baseUsername}_${domainPrefix}`;
+  const randomDigits = Math.floor(1000 + Math.random() * 9000); // ensures 4 digits
+  return `G${randomDigits}@${baseUsername}.ucu.ac.ug`;
 };
 
 // Helper function to generate random password
 const generatePassword = () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%';
-  let password = '';
-  for (let i = 0; i < 12; i++) {
-    password += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return password;
+  const randomDigits = Math.floor(1000 + Math.random() * 9000); // ensures 4 digits
+  return `guest@ucu.${randomDigits}`;
 };
 
 export const createGuestUser = async (req, res) => {

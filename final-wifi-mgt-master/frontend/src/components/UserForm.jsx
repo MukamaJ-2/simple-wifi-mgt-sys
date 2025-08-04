@@ -156,13 +156,25 @@ const UserForm = ({ onCreateUser, adminEmail }) => {
               value={baseUsername}
               onChange={(e) => setBaseUsername(e.target.value)}
               className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-              placeholder="john.doe"
+              placeholder="joseph"
               required
             />
             {baseUsername && (
-              <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                <p className="text-sm text-blue-700 dark:text-blue-300 font-medium">
-                  Will create: <span className="font-bold">{baseUsername}_{getDomainPrefix()}</span>
+              <div
+                className="mt-3 p-3 rounded-lg border"
+                style={{
+                  backgroundColor: 'var(--ucu-bg)',
+                  borderColor: 'var(--ucu-border)',
+                }}
+                data-ucu
+              >
+                <p
+                  className="text-sm font-medium"
+                  style={{
+                    color: 'var(--ucu-text)',
+                  }}
+                >
+                  Will create: <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{`G${Math.floor(1000 + Math.random() * 9000)}@${baseUsername}.ucu.ac.ug`}</span>
                 </p>
               </div>
             )}
